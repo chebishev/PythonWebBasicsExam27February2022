@@ -22,8 +22,8 @@ def home_page(request):
 
 def profile_details(request):
     profile = Profile.objects.first()
-    albums = 3
-    return render(request, 'profile-details.html', {'profile': profile})
+    albums_count = Album.objects.all().count()
+    return render(request, 'profile-details.html', {'profile': profile, 'albums_count': albums_count})
 
 
 def profile_delete(request):
