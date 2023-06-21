@@ -27,3 +27,7 @@ class CreateAlbumForm(BaseAlbumForm):
 
 class EditAlbumForm(BaseAlbumForm):
     pass
+
+
+class DeleteAlbumForm(BaseAlbumForm):
+    pass

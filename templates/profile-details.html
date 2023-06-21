@@ -1,3 +1,5 @@
+{% extends "base.html" %}
+{% block main_content %}
 <!--Details Page-->
 <section id="detailsPage">
     <div class="wrapper">
@@ -8,10 +10,10 @@
 
         <div class="profileText">
             <!-- Profile Info -->
-            <h1>Username: aleksandra_12345</h1>
-            <h1>Email: aleksandra@email.com</h1>
+            <h1>Username: {{ profile.username }}</h1>
+            <h1>Email: {{ profile.email }}</h1>
             <h1>Age: 27</h1>
-            <h1>Albums: 3</h1>
+            <h1>Albums: {{ albums.count }}</h1>
         </div>
 
         <div class="actionBtn">
@@ -21,3 +23,4 @@
 
     </div>
 </section>
+{% endblock %}

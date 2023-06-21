@@ -21,7 +21,9 @@ def home_page(request):
 
 
 def profile_details(request):
-    return render(request, 'profile-details.html')
+    profile = Profile.objects.first()
+    albums = 3
+    return render(request, 'profile-details.html', {'profile': profile})
 
 
 def profile_delete(request):

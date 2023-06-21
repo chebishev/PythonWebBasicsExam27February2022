@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from PythonWebBasicsExam27February2022.album_app.forms import CreateAlbumForm, EditAlbumForm
+from PythonWebBasicsExam27February2022.album_app.forms import CreateAlbumForm, EditAlbumForm, DeleteAlbumForm
 from PythonWebBasicsExam27February2022.album_app.models import Album
 from PythonWebBasicsExam27February2022.profile_app.models import Profile
 
@@ -34,4 +34,12 @@ def album_edit(request, id):
 
 def album_delete(request, id):
     album = Album.objects.get(id=id)
-    return render(request, 'delete-album.html')
+    form = DeleteAlbumForm(request.POST or None, instance=album)
+    if request.method == 'POST':
+        album.delete()
+        return redirect('home page')
+
+    for field in form.fields.values():
+        field.widget.attrs['disabled'] = True
+
+    return render(request, 'delete-album.html', {'form': form, 'album': album})
