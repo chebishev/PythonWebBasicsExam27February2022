@@ -9,9 +9,14 @@ from PythonWebBasicsExam27February2022.profile_app.models import Profile
 def album_add(request):
     form = CreateAlbumForm(request.POST or None)
     if form.is_valid():
+        # This code is directly connected to the Album Model
+        # and its connection to the current Profile
+        # comment the following 3 lines if you don't want to use it
         album = form.save(commit=False)
         album.profile = Profile.objects.first()
         album.save()
+        # and use the following line:
+        # form.save()
         return redirect('home page')
 
     return render(request, 'add-album.html', {'form': form})
