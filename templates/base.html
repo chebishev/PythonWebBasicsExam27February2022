@@ -19,6 +19,8 @@
             <a href="{% url 'home page' %}">Home</a><ul></ul>
             <ul>
                 <!--Only for user with created profile-->
+            {# We get the profile data via "context processor" and it is always accessible in any template #}
+            {# look at the processors.py in the main folder, there is also information about the settings.py file #}
                 {% if profile %}
                 <li><a href="{% url 'album add' %}">Create Album</a></li>
                 <li><a href="{% url 'profile details' %}">Profile</a></li>

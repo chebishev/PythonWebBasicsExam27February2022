@@ -27,8 +27,13 @@ def profile_details(request):
 
 
 def profile_delete(request):
-    # If you choose not to use the relationship between the Profile and the Album model
-    # you need to delete the albums as well:
-    # albums = Album.objects.all()
-    # albums.delete()
+    profile = Profile.objects.first()
+    if request.method == 'POST':
+        profile.delete()
+        # If you choose not to use the relationship between the Profile and the Album model
+        # you need to delete the albums as well:
+        # albums = Album.objects.all()
+        # albums.delete()
+        return redirect('home page')
+
     return render(request, 'profile-delete.html')

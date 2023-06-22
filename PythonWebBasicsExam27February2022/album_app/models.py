@@ -50,6 +50,7 @@ class Album(models.Model):
     # When the profile model is deleted, all the albums will be deleted too.
     # Comment it if you don't want to use it.
     # I'll provide the solution without this line in the album_app and profile_app views.
+    # album_add view and profile_delete view
     profile = models.ForeignKey(
         to=Profile, on_delete=models.CASCADE
     )

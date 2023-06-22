@@ -65,6 +65,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # this makes the connection with processors.py in the main directory
                 'PythonWebBasicsExam27February2022.processors.get_profile',
             ],
         },
