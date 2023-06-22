@@ -7,6 +7,8 @@ class BaseAlbumForm(forms.ModelForm):
     class Meta:
         model = Album
         fields = '__all__'
+        # removes the profile field from the form.
+        # It is generated, because of the albums -> Profile relation
         exclude = ['profile']
         labels = {
             'album_name': 'Album Name',
